@@ -3,13 +3,11 @@ package com.telenor.esimtest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.telephony.euicc.EuiccManager
 import android.telephony.euicc.EuiccManager.EMBEDDED_SUBSCRIPTION_RESULT_ERROR
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 
 class EsimSystemLpaStrategy(private val activity: FragmentActivity) {
@@ -41,7 +39,6 @@ class EsimSystemLpaStrategy(private val activity: FragmentActivity) {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     fun activate(lpa: String) {
         if (!(activity.getSystemService(Context.EUICC_SERVICE) as EuiccManager).isEnabled) {
             throw IllegalStateException("eSim not support")
